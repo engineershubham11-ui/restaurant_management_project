@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scaler=1" />
-    <title>contact us</title>
+    <title> Homepage </title>
     <style>
     body {font-family: arial, sans-serif; margin; 0; padding: 0; background-colour: #f4f4f4; colour: #333; }
     header { background-colour: #333; colour: #fff; padding: 1rem; text-align: center; }
@@ -15,14 +15,12 @@
     </head>
     <body>
      <header>
-       <h1>contact us</h1>
+       <h1> welcome to my restaurant </h1>
     </header>
     <main>
-       <h2> Get in Touch </h2>
-       <p><strong>address:</strong> 0103 main street, city,  country</p>
-       <p><strong>phone:</strong> +1 459 548 785</p>
-       <p><strong>email:</strong> harryhtk@gmail.com</p>
-       <p> we'd love to hear from you ! please reach out with any questions or feedback.</p>
+       <h2> About us </h2>
+       <p><strong>phone:</strong> {{ phone number}}</p>
+       <p> Delicious meals, cozy atomsphere, and friendly service.</p>
     </main>
     <footer>
     &copy; <span id="year"></span> my restaurant. all right reserved.
