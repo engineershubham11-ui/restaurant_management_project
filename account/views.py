@@ -3,55 +3,32 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scaler=1" />
-    <title>homepage . starter styles</title>
+    <title>contact us</title>
     <style>
-    *,*: :before, *: :after{box-sizing:border-box}
-    html:focus-within{scroll-behavior:smooth}
-    body,h1,h2,h3,h4,p,figure,blockquote,d1,dd{margin:0}
-    img,picture,svg,video{display:block;max-width:100%}
-    button,input,select,textarea{font:inherit}
-
-    :root{
-
-    --bg: #0f172a;
-    --bg-soft: #111827;
-    --surface: #111827;
-    --text: #e5e7eb;
-    --muted: #9ca3af;
-    --brand: #22d3ee;
-    --brand-ink: #0e7490;
-    --accent: #0a78bfa;
-    --ring: rgba(34,211,238,.45);
-    --radius: 16px;
-    --shadow: 0 10px 30px rgba(0,0,0,.25);
-
-
-    --font-sans: ui-sans-serif, system-ui, -apple-system, segoe UI, roboto, "helvetica Neue", Arial, "Noto sans", "Apple color Emogi", "segoe UI Emoji";
-    --fs-xs: .85rem;
-    --fs-sm: .95rem;
-    --fs-base: 1.05rem;
-    --fs-lg: 1.25rem;
-    --fs-xl: clamp(1.8rem,3vw + 1rem, 2.6rem);
-    --fs-2xl: clamp(2.2rem, 5vw + 1rem, 3.2rem);
-    --lh: 1.6;
-    --space-1: .5rem;
-    --space-2: .75rem;
-    --space-3: 1rem;
-    --space-4: 1.5rem;
-    --space-6: 2rem;
-    --space-8: 3rem;
-    --content-w: min(100%, 1100px);
-
-}
-
-body{
-    background: radial-gradient(1200px 600px at 10% -10%, rgba(167, 139, 250, .15 ), transparent 60%),
-    radial-gradient(900px 500px at 120% 10%, rgba(34, 211, 238, .12), transparent 55%),
-    var(--bg);
-    color: var(--text);
-    font-family: var(--font-sans);
-    font-size: var(--fs-base);
-    line-height: var(--lh);
-    -webkit-font-smoothing: antialiased;
-    -moz-oxs-font-smoothing: grayscale;
-}
+    body {font-family: arial, sans-serif; margin; 0; padding: 0; background-colour: #f4f4f4; colour: #333; }
+    header { background-colour: #333; colour: #fff; padding: 1rem; text-align: center; }
+    main {max-width: 600px; margin: 2rem auto; background: #fff; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); }
+    h1 { margin-bottom: 1rem; }
+    p { margin: 0.5rem 0 ;}
+    footer { text-align: center; padding: 1rem; background-color: #333; color: #fff; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); }
+    </style>
+    </head>
+    <body>
+     <header>
+       <h1>contact us</h1>
+    </header>
+    <main>
+       <h2> Get in Touch </h2>
+       <p><strong>address:</strong> 0103 main street, city,  country</p>
+       <p><strong>phone:</strong> +1 459 548 785</p>
+       <p><strong>email:</strong> harryhtk@gmail.com</p>
+       <p> we'd love to hear from you ! please reach out with any questions or feedback.</p>
+    </main>
+    <footer>
+    &copy; <span id="year"></span> my restaurant. all right reserved.
+    </footer>
+    <script>
+    document.getElementByld('year').textcontent = new date().getFullYear();
+    </script>
+    </body>
+    </html>
