@@ -58,3 +58,24 @@
         </footer>
  </body>
 </html>
+
+
+
+
+
+
+{% extend "base.html" % }
+
+
+
+{% block title % } home -my restaurant {% endblock %}
+{% block header %}
+   <h1 style="color: white; background-color: #8B0000; padding: 15px; margin: 0;">
+   welcome to my restaurant 
+   </h1>
+
+   {% endblock %}
+   {% block context %}
+      <p>Enjoy the finest dining experience with us!</p>
+    {% endblock %}
+    
