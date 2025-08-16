@@ -68,14 +68,22 @@
 
 
 
-{% block title % } home -my restaurant {% endblock %}
+{% block title % } Restaurant -my restaurant {% endblock %}
+
 {% block header %}
    <h1 style="color: white; background-color: #8B0000; padding: 15px; margin: 0;">
-   welcome to my restaurant 
+   
+reservation
+
    </h1>
 
    {% endblock %}
+
    {% block context %}
-      <p>Enjoy the finest dining experience with us!</p>
+
+   <div style="text-align: center; margin-top: 50px;">
+   <h2>reservation coming soon!</h2>
+      <p>we're working on our online reservation system. plese call us at <strong>(123)456-7890</strong> to book a table for now</p>
+      </div>
     {% endblock %}
     
