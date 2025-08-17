@@ -1,55 +1,60 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-   <meta charset="UTF-8">
-   <title>{% block title %}My Restaruant {% endblock %}</title>
-   <style>
-    
-    body{
-        font-family: Arial, Helvetica, sans-serif;
-        margin: 0;
-        padding: 0;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-    }
-      
-        main{
-            flex: 1;
-            padding:20px;
-        }
+from django.db import models 
 
-        footer{
-            background-colour: #333;
-            colour: whitel;
-            text-align: center;
-            padding: 15px;
-            margin-top: auto;
-        }
+class Feedback(models.model):
+    comment = models.TextField ()
+    submitted_at = models.DateTimeField(auto_now_add=True)
 
-        .hours{
-            margin-top: 5px;
-            font-size: 14px;
-            colour: #ddd;
-        }
+    def __str__(self):
+        return F"feedback #{self.id} -{self.submitted_at"}
 
 
-    </style>
-</head>
-<body>
-    <header>
-        {%block header %} {% endblock %}
-    </header>
 
-    <main>
-        {% block content %} {% endblock %}
-    </main>
 
-    <footer>
-       <p> {% now "Y" %}my restaurant. All right reserved.</p>
-       <p> class="hours">Opeaning Hours: mon-Fri: 11am - 9am | sat-sun: 10am - 10pm</p>
-    </footer>
-    
- </body>
-</html>
+
+forms.py
+
+
+from django import forms
+form.models import Feedback
+
+class FeedbackForm(forms.modelsForm):
+    class meta:
+        model = Feedback
+        fields = ['comment']
+
+
+
+
+
+
+views.py
+
+form django.shortcuts import render, redirect
+from.form import FeedbackForm
+
+def feedback_view(request):
+    if request.method == "POST":
+        form = feedbackform(request.post)
+        if form.is_valid():
+            form.save()
+            return redirect('feedback')
+        else:
+            form = feedbackform()
+            return render(request, "feedback.html" , {"form":form})
+
+
+
+
+
+urls.py
+
+from django.urls import path 
+from . import views
+
+urlpattern = [
+    path('feedback/', views.feedback_view, name='feedback'),
+]
+
+
+
+
