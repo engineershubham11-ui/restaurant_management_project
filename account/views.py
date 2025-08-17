@@ -1,37 +1,55 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
    <meta charset="UTF-8">
-   <title> contact us </title>
-   <script>
+   <title>{% block title %}My Restaruant {% endblock %}</title>
+   <style>
     
-    function validateForm(){
-        let name = document.forms["contactForm"]["name"].value;
-        let email = document.Forms["contactForm"]["email"].value;
-
-        if (name ==="" || email === ""){
-            alert("please fill in both name and Email fields.");
-            return false; 
-        }
-        return true;
+    body{
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
     }
+      
+        main{
+            flex: 1;
+            padding:20px;
+        }
 
-    </script>
+        footer{
+            background-colour: #333;
+            colour: whitel;
+            text-align: center;
+            padding: 15px;
+            margin-top: auto;
+        }
+
+        .hours{
+            margin-top: 5px;
+            font-size: 14px;
+            colour: #ddd;
+        }
+
+
+    </style>
 </head>
 <body>
-     <h2> contact us </h2>
-     <from name="contactForm" onsubmit="return validateFrom()">
-     <label for="name">Name:</label><br>
-     <imput type="text" id="name" name="name"><br><br>
+    <header>
+        {%block header %} {% endblock %}
+    </header>
 
-     label for="email">Email:</label><br>
-     <input type="email" id="email" name="email"><br><br>
+    <main>
+        {% block content %} {% endblock %}
+    </main>
 
-     <label for="message">Message:</label><br>
-     <textarea id="message" name="message"></textarea><br><br>
-
-     <button type="submit">submit</button>
-   
-        </form>
+    <footer>
+       <p> {% now "Y" %}my restaurant. All right reserved.</p>
+       <p> class="hours">Opeaning Hours: mon-Fri: 11am - 9am | sat-sun: 10am - 10pm</p>
+    </footer>
+    
  </body>
 </html>
