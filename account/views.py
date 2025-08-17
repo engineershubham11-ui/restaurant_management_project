@@ -1,60 +1,45 @@
-from django.db import models 
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>{% block title %}my Restaurant{% endblock %}</title>
+   <style>
+   body{
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display:flex;
+    Flex-direction: column;
+    min-height: 100vh;
+   }
 
-class Feedback(models.model):
-    comment = models.TextField ()
-    submitted_at = models.DateTimeField(auto_now_add=True)
+main{
+    flex: 1;
+    padding: 20px;
+}
 
-    def __str__(self):
-        return F"feedback #{self.id} -{self.submitted_at"}
+footer{
+    backgroung-colour: #333;
+    colours: white;
+    text-align: center;
+    padding: 12px;
+    margin-top: auto;
+}
 
+</style>
+</head>
+<body>
+   <header>
+       {% block header %}{% endblock %}
+    </header>
 
+    <main>
+    {% block content % }{% endblock %}
+    </main>
 
+    <footer>
+    <p> {% now "Y" %}my Restaurant. All right reserverd.</p>
+    </footer>
 
-
-forms.py
-
-
-from django import forms
-form.models import Feedback
-
-class FeedbackForm(forms.modelsForm):
-    class meta:
-        model = Feedback
-        fields = ['comment']
-
-
-
-
-
-
-views.py
-
-form django.shortcuts import render, redirect
-from.form import FeedbackForm
-
-def feedback_view(request):
-    if request.method == "POST":
-        form = feedbackform(request.post)
-        if form.is_valid():
-            form.save()
-            return redirect('feedback')
-        else:
-            form = feedbackform()
-            return render(request, "feedback.html" , {"form":form})
-
-
-
-
-
-urls.py
-
-from django.urls import path 
-from . import views
-
-urlpattern = [
-    path('feedback/', views.feedback_view, name='feedback'),
-]
-
-
-
-
+</body>
+<html>
