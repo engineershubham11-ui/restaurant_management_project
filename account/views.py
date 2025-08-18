@@ -1,11 +1,7 @@
-from django.db import models 
+from django.shortcuts import render
+from .model import MenuItems
 
-class menuItem(models.model):
-    name = models.charField(max_length=200)
-    description = models.TextField(blank=true, null=true)
-    price = models.decimalField(max_digit=8, decimal_places=2)
-
-    def __str__(self):
-        return f"{self.name} - ${self.price}"
-    
+def menu_page(request):
+    items = MenuItems.objects.all()
+    return render(request, 'menu.html', {'items': items})
     
