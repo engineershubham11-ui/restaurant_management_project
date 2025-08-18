@@ -1,15 +1,23 @@
-{% extend "base.html" %}
+from django.http import HttpResponse
+from .models import restaurant 
 
-{% block title % }Home  -  my restaurant{% endblock %}
+def home(request):
+    restaurant = restaurant.object.first()
+    name = restaurant.name if restaurant else "our Restaurant "
+    return HttpResponse(f"<h1>welcome to {name}</h1>")
 
-{% block content %}
-     <h2> welcome to my restaurant </h2>
-     <p> Enjoy the finest dining experience with us!</p>
 
 
-     <form method="get" action="#">
-     <input type ="text" name="q" placeholder="search menu items..." style="padding:8px; width:250px">
-     <button type= "submit" style="padding:8px;">search</button>
-    </form>
 
-{% endblock %}
+#setting.py
+
+RESTAURANT_NAME = "Food Paradise"
+
+#urls.py
+
+from django.urls import path
+from .view import home
+
+urlpattern = [
+    path('',home, name='home'),
+]
