@@ -1,21 +1,26 @@
-from django.db import models
+from rest_Framework.decorators import api_view
+from rest_Framework.response import Response
 
-class contactsubmission(models.model):
-    name = models.charfield(max_length=100)
-    email = models.Emailfield()
-    submitted_at = models.dateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return f"{self.name} ({ self.email})"
-
-
-#form.py
-from django import forms
-froms .models import contactsubmission
-class contactfrom(forms.modelform):
-    class meta:
-        model = contactsubmission
-        fields = ['name','email']
+@api_view(['GET'])
+def get_menu(request):
+    menu = [
+        {
+            "name": "paneer butter masala",
+            "description": "delicious cottage cheese in a creamy tomato gravy"
+            "price":250
+        },
+        {
+            "name": "chicken biryanni",
+            "description": "fragrant bsamati rice coocked with spiced chicken",
+            "price":300
+        },
+        {
+            "name": "veg fried rice",
+            "description": "stir-fried rice with mixed vegetables and soy sauce",
+            "price": 180
+        }
+    ]
+return Response(menu)
 
 
 
