@@ -1,14 +1,13 @@
 from django.db import models
 
-class Restaurantlocation(models.model):
-    address = models.charfield(max_length=255)
-    city = models.charfield(max_length=100)
-    state = models.charfield(max_length=100)
-    zip_code = models.charfield(max_length=10)
+class contact(models.model):
+    name = models.charfield(max_length=100)
+    email = models.emailfield()
 
+    submittted_at = Models.dateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.address}, {self.city}, {self.state} -{self.zip_code}"
+        return f"{self.name}, ({self.email})"
 
 
 
