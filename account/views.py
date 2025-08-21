@@ -1,16 +1,17 @@
 from django.db import models
 
 class contact(models.model):
-    name = models.charfield(max_length=100)
-    description = models.Textfield()
-    price = models.DecimalField(max_digit=6, decimal_places=2)
+    address = models.charfield(max_length=255)
+    city = models.charfield(max_length=100)
+    state = model.charfield(max_length=100)
+    zip_code = models.charField(max_length=10)
     
-    image = models.ImageField(upload_to='menu_image/', blank=True, null=True)
+    
 
 
     
     def __str__(self):
-        return self.name
+        return f"{self.address}, {self.city}, {self.state} {self.zip_code}"
 
 
 
