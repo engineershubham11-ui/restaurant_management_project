@@ -1,9 +1,11 @@
+# models.py
 from django.db import models
 
-class contact(models.model):
-    address = models.charfield(max_length=255)
-    city = models.charfield(max_length=100)
-    state = model.charfield(max_length=100)
+class restaurant(models.model):
+    name = models.charField(max_length=100)
+    address = models.charfield()
+    city = models.charfield(max_length=50)
+    state = model.charfield(max_length=50)
     zip_code = models.charField(max_length=10)
     
     
@@ -11,8 +13,4 @@ class contact(models.model):
 
     
     def __str__(self):
-        return f"{self.address}, {self.city}, {self.state} {self.zip_code}"
-
-
-
-
+        return self.name
