@@ -5,6 +5,8 @@ class Restaurant(models.model):
     address = models.TextFeild()
     phone_number = models.CharField(max_length=15)
     logo = models.ImageField(upload_to='restaurant_logos/', blank=True, null=True)
+    history = models.TextField(blank=true, null=true)
+    mission = models.TextFeild(blank=true, null=true)
 
 
     def __str__(self):
@@ -18,34 +20,26 @@ python manage.py makemigrations
 python manage.py migrate
 
 
-#setting.pr
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR /'media'
 
 
 #views.py
 
-from django.conf import setting
-from django.conf.url.static import static 
+from django.shortcuts import render
+from .models import Restaurant
 
- urlpattern = [
-    #...
- ]
-
-if setting.DEBUG:
-    urlpattern += static(setting.MEDIA_URL, document_root=setting.MEDIA_ROOT)
-
-
+ def about(request):
+   restaurant = Restaurant.object.first()
+   return render(request, 'about.html', {'restaurant': restaurant})
 
 
 #updateview
-from django.shotcuts import render
-from .models import Restaurant 
+from django.url import path 
+from .import views
 
- def home(request):
-    restaurant = Restaurant.object.first()
-    return render(request, 'home.html', {'restaurant' : restaurant})
-
+ urlpattern = [
+    path('', views.home, name='home'),
+    path('about/', views.about, name='about'),
+ ]
 
 
 #home.html
@@ -64,9 +58,19 @@ from .models import Restaurant
         {% endif %}
     </header>
 
-    <h1> welcome to {{ restaurant.name }}</h1>
-    <p>Address: {{ restaurant.address }}</p>
-    <p> Phone: <a href="tel: {{restaurant.phone_number }}">{{ restaurant.phone_number }}</a></p>
-    
+    <section>
+       <h2> our History </h2>
+       <p>{{ restaurant.history|Iinebreks }}</p>
+    </section>
+
+    <section>
+      <h2> Our mission </h2>
+      <p>{{ restaurant.mission|Iinebreks }}<p/>
+    </section>
+
+    <footer>
+      <p><a href="{% url 'home" %}">back to home</a></p>
+    </footer>
+
 </body>
 </html>
