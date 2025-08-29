@@ -1,14 +1,35 @@
-#views.py
 from django.shortcuts import render
+from django.urls import reverse
 
-def privacy_policy(request):
-    return render(request, "privacy_policy.html")
+def home(request):
+    breadcrumbs = [("home",None)]
+    return render(request,"home.html", {"breadcrumbs": breadcrumbs})
 
-#urls.py
-from django.urls import path
-from . import views
+def menu(request):
+    breadcrumbs = [
+        ("Home", reverse("home")),
+        ("Menu", None),
+    ]
+    return render(request, "menu.html", {"breadcrumbs": breadcrumbs})
 
-urlpattern = [
-    path("privacy-policy/", views.privacy_policy, name="privacy_policy"),
-    
-]
+def order_confirmation(request):
+    breadcrumbs = [
+        ("Home", reverse("home")),
+        ("Menu", reverse("menu")),
+        ("Order configration", None),
+    ]
+    return render(request, "order_configration.html",{"breadcrumbs": breadcrumbs})
+
+#home.html
+
+{% extend "base.html" %}
+
+{% block content %}
+{% include "partials/breadcrumbs.html" %}
+
+
+<div class="container mt-3">
+<!--content-->
+
+</div>
+{% endblock %}
